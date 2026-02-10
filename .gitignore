@@ -1,0 +1,27 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Dependencies
+node_modules/
+*.log
+
+# Playwright
+playwright-report/
+test-results/
+playwright/.cache/
+
+# Env & secrets
+.env
+.env.local
+
+# Builds
+dist/
+build/
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db
