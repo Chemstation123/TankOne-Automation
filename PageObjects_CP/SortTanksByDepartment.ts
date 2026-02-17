@@ -6,7 +6,7 @@ import {Page, expect} from "@playwright/test";
 export class SortTanksByDepartment{
     public page : Page;
     constructor(page : Page){
-        this.page = page;
+    this.page = page;
     }
     async SortTanksByDepartment()
     {

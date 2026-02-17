@@ -4,6 +4,7 @@ import { AddTopToolbarLogoutUserProfileOptions } from '../PageObjects_CP/AddTopT
 import { SortTanksByDepartment } from '../PageObjects_CP/SortTanksByDepartment';
 import { VerifyHomeAndLogoutButtonsOnLeftPanel } from '../PageObjects_CP/VerifyHomeAndLogoutButtonsOnLeftPanel';
 import { VerifyLocationDropdownonTopToolbar } from '../PageObjects_CP/VerifyLocationDropdownonTopToolbar';
+import { VerifyStatusSection } from '../PageObjects_CP/VerifyStatusSection';
 
 
 
@@ -17,6 +18,7 @@ test.describe('CP Environmnet Tests', () => {
     let sortTanksByDepartmentPage: SortTanksByDepartment;
     let verifyHomeAndLogoutButtonsOnLeftPanelPage: VerifyHomeAndLogoutButtonsOnLeftPanel;
     let verifyLocationDropdownonTopToolbarPage: VerifyLocationDropdownonTopToolbar;
+    let verifyStatusSectionPage: VerifyStatusSection;
 
 
 
@@ -55,6 +57,15 @@ test.describe('CP Environmnet Tests', () => {
 
         await loginPage.performLoginPageCP();
         await verifyLocationDropdownonTopToolbarPage.VerifyLocationDropdownonTopToolbar();
+    });
+
+
+    test('Verify Status Section', async({ page }) => {
+        loginPage = new LoginPageCP(page);
+        verifyStatusSectionPage = new VerifyStatusSection(page);
+
+        await loginPage.performLoginPageCP();
+        await verifyStatusSectionPage.VerifyStatusSection();
     });
 
 
