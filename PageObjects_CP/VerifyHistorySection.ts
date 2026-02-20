@@ -25,9 +25,6 @@ export class VerifyHistorySection{
 
         await this.page.getByRole('textbox', { name: 'Start Date' }).fill(formatDate(startDate));
         await this.page.getByRole('textbox', { name: 'End Date' }).fill(formatDate(yesterday));
-
-        // await this.page.getByRole('button', { name: 'Submit' }).click();
-        await this.page.getByText('Submit').click();
         await this.page.waitForTimeout(2000);
         await this.page.getByText('Submit').click();
         
