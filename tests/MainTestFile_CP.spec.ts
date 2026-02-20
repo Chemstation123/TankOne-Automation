@@ -5,6 +5,7 @@ import { SortTanksByDepartment } from '../PageObjects_CP/SortTanksByDepartment';
 import { VerifyHomeAndLogoutButtonsOnLeftPanel } from '../PageObjects_CP/VerifyHomeAndLogoutButtonsOnLeftPanel';
 import { VerifyLocationDropdownonTopToolbar } from '../PageObjects_CP/VerifyLocationDropdownonTopToolbar';
 import { VerifyStatusSection } from '../PageObjects_CP/VerifyStatusSection';
+import { VerifyHistorySection } from '../PageObjects_CP/VerifyHistorySection';
 
 
 
@@ -19,6 +20,7 @@ test.describe('CP Environmnet Tests', () => {
     let verifyHomeAndLogoutButtonsOnLeftPanelPage: VerifyHomeAndLogoutButtonsOnLeftPanel;
     let verifyLocationDropdownonTopToolbarPage: VerifyLocationDropdownonTopToolbar;
     let verifyStatusSectionPage: VerifyStatusSection;
+    let verifyHistorySectionPage: VerifyHistorySection;
 
 
 
@@ -67,6 +69,15 @@ test.describe('CP Environmnet Tests', () => {
         await loginPage.performLoginPageCP();
         await verifyStatusSectionPage.VerifyStatusSection();
     });
+
+    test('Verify History Section', async({ page }) => {
+        loginPage = new LoginPageCP(page);
+        verifyHistorySectionPage = new VerifyHistorySection(page);
+
+        await loginPage.performLoginPageCP();
+        await verifyHistorySectionPage.VerifyHistorySection();
+    });
+
 
 
 
