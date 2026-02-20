@@ -6,6 +6,8 @@ import { VerifyHomeAndLogoutButtonsOnLeftPanel } from '../PageObjects_CP/VerifyH
 import { VerifyLocationDropdownonTopToolbar } from '../PageObjects_CP/VerifyLocationDropdownonTopToolbar';
 import { VerifyStatusSection } from '../PageObjects_CP/VerifyStatusSection';
 import { VerifyHistorySection } from '../PageObjects_CP/VerifyHistorySection';
+import { VerifyDetailsSection } from '../PageObjects_CP/VerifyDetailsSection';
+import { VerifyUsageSection } from '../PageObjects_CP/VerifyUsageSection';
 
 
 
@@ -21,6 +23,9 @@ test.describe('CP Environmnet Tests', () => {
     let verifyLocationDropdownonTopToolbarPage: VerifyLocationDropdownonTopToolbar;
     let verifyStatusSectionPage: VerifyStatusSection;
     let verifyHistorySectionPage: VerifyHistorySection;
+    let verifyDetailsSectionPage: VerifyDetailsSection;
+    let verifyUsageSectionPage: VerifyUsageSection;
+
 
 
 
@@ -78,9 +83,23 @@ test.describe('CP Environmnet Tests', () => {
         await verifyHistorySectionPage.VerifyHistorySection();
     });
 
+    test('Verify Details Section', async({ page }) => {
+        loginPage = new LoginPageCP(page);
+        verifyDetailsSectionPage = new VerifyDetailsSection(page);
+
+        await loginPage.performLoginPageCP();
+        await verifyDetailsSectionPage.VerifyDetailsSection();
+    });
 
 
+    test('Verify Usage Section', async({ page }) => {
+        loginPage = new LoginPageCP(page);
+        verifyUsageSectionPage = new VerifyUsageSection(page);
 
+        await loginPage.performLoginPageCP();
+        await verifyUsageSectionPage.VerifyUsageSection();
+
+    });
 
 
 
