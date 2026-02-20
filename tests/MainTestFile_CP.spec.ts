@@ -8,6 +8,7 @@ import { VerifyStatusSection } from '../PageObjects_CP/VerifyStatusSection';
 import { VerifyHistorySection } from '../PageObjects_CP/VerifyHistorySection';
 import { VerifyDetailsSection } from '../PageObjects_CP/VerifyDetailsSection';
 import { VerifyUsageSection } from '../PageObjects_CP/VerifyUsageSection';
+import { linkToTrainingPortal } from '../PageObjects_CP/LinkToTrainingPortal';
 
 
 
@@ -25,6 +26,7 @@ test.describe('CP Environmnet Tests', () => {
     let verifyHistorySectionPage: VerifyHistorySection;
     let verifyDetailsSectionPage: VerifyDetailsSection;
     let verifyUsageSectionPage: VerifyUsageSection;
+    let linkToTrainingPortalPage: linkToTrainingPortal;
 
 
 
@@ -101,6 +103,13 @@ test.describe('CP Environmnet Tests', () => {
 
     });
 
+    test('Link To Training Portal', async({ page }) => {
+        loginPage = new LoginPageCP(page);
+        linkToTrainingPortalPage = new linkToTrainingPortal(page);
+
+        await loginPage.performLoginPageCP();
+        await linkToTrainingPortalPage.LinkToTrainingPortal();
+    });
 
 
 
